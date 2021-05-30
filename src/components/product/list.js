@@ -1,14 +1,19 @@
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { Container, Table } from 'react-bootstrap'
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Container, Table } from "react-bootstrap";
 
-const ProductList = () => {
-  const productList = useSelector((state) => state.product.list)
+const Products = () => {
+  const productList = useSelector((state) => state.product.list);
 
   return (
     <Container>
-      <h1>Product List</h1>
-      <Table striped bordered hover>
+      <h3 className="mb-3">Products</h3>
+      <p className="mb-4">
+        You can browse the catalog below or hit <mark>Edit</mark> to change
+        product info.
+      </p>
+
+      <Table hover>
         <thead>
           <tr>
             <th>Product Name</th>
@@ -32,16 +37,21 @@ const ProductList = () => {
                 <td>{product.url}</td>
                 <td>
                   {product.isEditable && (
-                    <Link to={`/edit-products/${product._id}`} className={'btn btn-primary'}>Edit</Link>
+                    <Link
+                      to={`/edit-products/${product._id}`}
+                      className={"btn btn-primary"}
+                    >
+                      Edit
+                    </Link>
                   )}
                 </td>
               </tr>
-            )
+            );
           })}
         </tbody>
       </Table>
     </Container>
-  )
-}
+  );
+};
 
-export default ProductList
+export default Products;
