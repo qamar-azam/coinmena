@@ -7,7 +7,6 @@ import Edit from "./components/product/edit";
 import { Header } from "./components/header";
 
 // Custom styling
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
